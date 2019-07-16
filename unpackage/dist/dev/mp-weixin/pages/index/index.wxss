@@ -1,0 +1,103 @@
+
+.content.data-v-b16c9c40 {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		-webkit-box-pack: start;
+		-webkit-justify-content: flex-start;
+		    -ms-flex-pack: start;
+		        justify-content: flex-start;
+}
+.logo.data-v-b16c9c40 {
+		height: 200rpx;
+		width: 200rpx;
+		margin-top: 200rpx;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 50rpx;
+}
+.nav.data-v-b16c9c40 {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
+		-webkit-flex-wrap: wrap;
+		    -ms-flex-wrap: wrap;
+		        flex-wrap: wrap;
+}
+.nav_demo.data-v-b16c9c40{
+		width: 100%;
+}
+.uni-view.button-item.data-v-b16c9c40{
+	  margin-bottom: 5rpx;
+	  color: #FFFFFF;
+}
+.l_icon.data-v-b16c9c40{
+		padding-left:20rpx ;
+}
+.qiang.data-v-b16c9c40{
+		height: 80rpx;
+}
+.main.data-v-b16c9c40{
+			width: 90%;
+}
+.br_icon.data-v-b16c9c40{
+	  position: fixed;
+		  bottom: 10rpx;
+		  right: 60rpx;
+		  color: #AAAAAA;
+		  font-size: 108rpx;
+}
+.bl_icon.data-v-b16c9c40{
+		 position: fixed;
+	      bottom: 10rpx;
+		  left: 60rpx;
+		  color: #AAAAAA;
+		  font-size: 108rpx;
+}
+.bl_icon.data-v-b16c9c40:hover{
+		color: #2453f6;
+}
+.br_icon.data-v-b16c9c40:hover{
+		color: #2453f6;
+}
+.bz_tu.data-v-b16c9c40{
+         position: fixed;
+		 bottom: 10rpx;
+		 width: 130rpx;
+		 height: 130rpx;
+}
+.di.data-v-b16c9c40{
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		 -webkit-box-pack:center;
+		 -webkit-justify-content:center;
+		     -ms-flex-pack:center;
+		         justify-content:center;
+}
+.bz_tu.data-v-b16c9c40:hover{
+		-webkit-transition: all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		transition: all 0.5s ease;
+		color: #1AAD19;
+		width: 300rpx;
+		height:300rpx ;
+		opacity:0;
+}
+
