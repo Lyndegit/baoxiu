@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "一键报修",
   "usingComponents": {
-    "caidan": "/components/caidan/caidan"
+    "caidan": "/components/caidan/caidan",
+    "robby-image-upload": "/components/robby-image-upload/robby-image-upload"
   }
 }

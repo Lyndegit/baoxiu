@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/wybx/wybx"
+    "pages/wybx/wybx",
+    "pages/my/my"
   ],
   "subPackages": [],
   "window": {
@@ -11,5 +12,7 @@
     "backgroundColor": "#F8F8F8",
     "navigationStyle": "default"
   },
-  "usingComponents": {}
+  "usingComponents": {
+    "textscroll": "/components/p-screenTextScroll/screenTextScroll"
+  }
 }

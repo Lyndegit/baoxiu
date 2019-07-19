@@ -16,12 +16,12 @@
 	/*每个页面公共css */
 @font-face {
   font-family: 'iconfont';  /* project id 1296371 */
-  src: url('//at.alicdn.com/t/font_1296371_2md63j3i9st.eot');
-  src: url('//at.alicdn.com/t/font_1296371_2md63j3i9st.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_1296371_2md63j3i9st.woff2') format('woff2'),
-  url('//at.alicdn.com/t/font_1296371_2md63j3i9st.woff') format('woff'),
-  url('//at.alicdn.com/t/font_1296371_2md63j3i9st.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_1296371_2md63j3i9st.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_1296371_ppe87evfym.eot');
+  src: url('//at.alicdn.com/t/font_1296371_ppe87evfym.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1296371_ppe87evfym.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1296371_ppe87evfym.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1296371_ppe87evfym.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1296371_ppe87evfym.svg#iconfont') format('svg');
 }
 .icon{
 	font-family:"iconfont" !important;

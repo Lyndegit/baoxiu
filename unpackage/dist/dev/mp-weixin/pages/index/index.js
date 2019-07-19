@@ -137,12 +137,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 {
   data: function data() {
     return {
       downOption: {
         use: true, // 是否启用下拉刷新; 默认true
-        auto: true // 是否在初始化完毕之后自动执行下拉刷新的回调; 默认true
+        auto: true // 是否在初始化完毕之后自动执行下拉刷新的回调; 默认true 
       },
       upOption: {
         use: true, // 是否启用上拉加载; 默认true
@@ -191,6 +192,11 @@ __webpack_require__.r(__webpack_exports__);
     tiaozhuan: function tiaozhuan() {
       uni.navigateTo({
         url: '../wybx/wybx' });
+
+    },
+    zhuan: function zhuan() {
+      uni.navigateTo({
+        url: '../my/my' });
 
     },
     downCallback: function downCallback(mescroll) {

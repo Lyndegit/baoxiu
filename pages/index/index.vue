@@ -22,10 +22,11 @@
 			<NAUIcard :listData="detail"></NAUIcard> -->
 		</view>
 		</mescroll-uni>
+		
 		<view class="di">
 			<image src="../../static/baoxiu.png" class="bz_tu" @tap="tiaozhuan" id="bx"></image>
 			<text class="icon bl_icon"> &#xe610;</text>
-			<text class="icon br_icon"> &#xe654;</text>
+			<text class="icon br_icon" @tap="zhuan"> &#xe654;</text>
 		</view>
 		</view>
 		
@@ -42,7 +43,7 @@
 			return {
 				downOption: { 
 						use: true, // 是否启用下拉刷新; 默认true
-						auto: true, // 是否在初始化完毕之后自动执行下拉刷新的回调; 默认true
+						auto: true, // 是否在初始化完毕之后自动执行下拉刷新的回调; 默认true 
 					},
 				upOption: {
 						use: true, // 是否启用上拉加载; 默认true
@@ -89,9 +90,14 @@
             // console.log(e, val);    搜索
             // this['val'+val] = e;
 			tiaozhuan(){
-				   uni.navigateTo({
+				   uni.navigateTo({ 
 					url:'../wybx/wybx',  
 				})
+				},
+				zhuan(){
+					uni.navigateTo({
+						url:'../my/my'
+					})
 				},
 			downCallback(mescroll){
 					// 第1种: 请求具体接口
@@ -232,3 +238,4 @@
 		opacity:0;
 	}
 </style>
+
