@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "一键报修",
-  "usingComponents": {}
+  "usingComponents": {
+    "caidan": "/components/caidan/caidan"
+  }
 }

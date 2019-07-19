@@ -8,18 +8,20 @@
             </uni-nav-bar>
 			<!-- <text class="sss">搜索的值：{{val1}}</text> -->  
 		</view>
+		<mescroll-uni :down="downOption" @down="downCallback" :up="upOption" @up="upCallback" >
 		<view class="qiang"></view>
-		<view class="main">
+		<view class="main" v-for="dataList in detail" :key="dataList.id">
+			<NAUIcard :listData="detail"></NAUIcard>
+			<!-- <NAUIcard :listData="detail"></NAUIcard>
 			<NAUIcard :listData="detail"></NAUIcard>
 			<NAUIcard :listData="detail"></NAUIcard>
 			<NAUIcard :listData="detail"></NAUIcard>
 			<NAUIcard :listData="detail"></NAUIcard>
 			<NAUIcard :listData="detail"></NAUIcard>
 			<NAUIcard :listData="detail"></NAUIcard>
-			<NAUIcard :listData="detail"></NAUIcard>
-			<NAUIcard :listData="detail"></NAUIcard>
-			<NAUIcard :listData="detail"></NAUIcard>
+			<NAUIcard :listData="detail"></NAUIcard> -->
 		</view>
+		</mescroll-uni>
 		<view class="di">
 			<image src="../../static/baoxiu.png" class="bz_tu" @tap="tiaozhuan" id="bx"></image>
 			<text class="icon bl_icon"> &#xe610;</text>
@@ -34,9 +36,27 @@
 	import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
 	import uniIcon from "@/components/uni-icon/uni-icon.vue"
 	 import mSearch from "@/components/mehaotian-search/mehaotian-search.vue"
-	export default {
+	 import MescrollUni from "@/components/mescroll-uni/mescroll-uni.vue"
+	export default {    
 		data() {
 			return {
+				downOption: { 
+						use: true, // 是否启用下拉刷新; 默认true
+						auto: true, // 是否在初始化完毕之后自动执行下拉刷新的回调; 默认true
+					},
+				upOption: {
+						use: true, // 是否启用上拉加载; 默认true
+						auto: true, // 是否在初始化完毕之后自动执行上拉加载的回调; 默认true
+						isLock: false,//是否锁定上拉加载(设为true,可用于不触发upCallback,只保留回到顶部的功能)
+						page: {
+							num: 0, // 当前页码,默认0,回调之前会加1,即callback(page)会从1开始
+							size: 10 // 每页数据的数量,默认10
+						},
+						noMoreSize: 3, // 配置列表的总数量要大于等于5条才显示'-- END --'的提示
+						empty: {
+							tip: '暂无相关数据'
+						}
+					},
 				// val1: '',   搜索 
 				detail: {
                 id: '12',
@@ -57,7 +77,7 @@
                 show_times: '0',
                 anony: false,
                 avatarurl: '../../static/logo.png',
-                creat_time: '1552748677'
+                creat_time: '2019/7/17'
             },
 			}
 		},
@@ -68,20 +88,71 @@
             // search(e, val) {
             // console.log(e, val);    搜索
             // this['val'+val] = e;
-			// tiaozhuan(){
-			// 	   uni.navigateTo({
-			// 		url:'../wybx/wybx',  跳转动画
-			// 	})
-			// 	}
+			tiaozhuan(){
+				   uni.navigateTo({
+					url:'../wybx/wybx',  
+				})
+				},
+			downCallback(mescroll){
+					// 第1种: 请求具体接口
+					uni.request({
+						url: 'xxxx',
+						success: () => {
+							// 成功隐藏下拉加载状态
+							mescroll.endSuccess()
+						},
+						fail: () => {
+							// 失败隐藏下拉加载状态
+							mescroll.endErr()
+						}
+					})
         },
+		upCallback(mescroll) {
+					// 此时mescroll会携带page的参数:
+					let pageNum = mescroll.num; // 页码, 默认从1开始
+					let pageSize = mescroll.size; // 页长, 默认每页10条
+					uni.request({
+						url: 'xxxx?pageNum='+pageNum+'&pageSize='+pageSize,
+						success: (data) => {
+							// 接口返回的当前页数据列表 (数组)
+							let curPageData = data.xxx; 
+							// 接口返回的总页数 (比如列表有26个数据,每页10条,共3页; 则totalPage值为3)
+							let totalPage = data.xxx; 
+							// 接口返回的总数据量(比如列表有26个数据,每页10条,共3页; 则totalSize值为26)
+							let totalSize = data.xxx; 
+							// 接口返回的是否有下一页 (true/false)
+							let hasNext = data.xxx; 
+							
+							// 成功隐藏下拉加载状态
+							//方法一(推荐): 后台接口有返回列表的总页数 totalPage
+							mescroll.endByPage(curPageData.length, totalPage); 
+							
+							//方法二(推荐): 后台接口有返回列表的总数据量 totalSize
+							//mescroll.endBySize(curPageData.length, totalSize); 
+							
+							//方法三(推荐): 您有其他方式知道是否有下一页 hasNext
+							//mescroll.endSuccess(curPageData.length, hasNext); 
+							
+							//设置列表数据
+							if(mescroll.num == 1) this.dataList = []; //如果是第一页需手动置空列表
+							this.dataList = this.dataList.concat(curPageData); //追加新数据
+						},
+						fail: () => {
+							// 失败隐藏下拉加载状态
+							mescroll.endErr()
+						
+						},
+						})
+						}
+						},
 	
-		components:{uniNavBar,uniIcon,mSearch,NAUIcard}
+		components:{uniNavBar,uniIcon,mSearch,NAUIcard,MescrollUni}
 }
 </script>
 
 <style scoped>
 	.content {
-		display: flex;
+		/* display: flex; */
 		flex-direction: column;
 		align-items: center;
 		justify-content: flex-start;
@@ -100,7 +171,6 @@
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
-		
 
 			}
 	.nav_demo{
@@ -114,9 +184,11 @@
 		padding-left:20rpx ;
 		
 	}.qiang{
-		height: 80rpx;
+		height: 150rpx;
 	}
 		.main{
+			
+			margin-left: 40rpx;
 			width: 90%;
 	}
 	.br_icon{
@@ -125,6 +197,7 @@
 		  right: 60rpx;
 		  color: #AAAAAA;
 		  font-size: 108rpx;
+		  z-index: 99;
 	}	
 	.bl_icon{
 		 position: fixed;
@@ -132,6 +205,7 @@
 		  left: 60rpx;
 		  color: #AAAAAA;
 		  font-size: 108rpx;
+		  z-index: 99;
 	}
 	.bl_icon:hover{
 		color: #2453f6;
@@ -144,13 +218,14 @@
 		 bottom: 10rpx;
 		 width: 130rpx;
 		 height: 130rpx;
+		 z-index: 99;
 	}		
 	.di{
 		display: flex;
 		 justify-content:center;
 	}
 	.bz_tu:hover{
-		transition: all 0.5s ease;
+		transition: all 0.3s ease;
 		color: #1AAD19;
 		width: 300rpx;
 		height:300rpx ;

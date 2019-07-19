@@ -1,9 +1,6 @@
 
 .content.data-v-b16c9c40 {
-		display: -webkit-box;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: flex;
+		/* display: flex; */
 		-webkit-box-orient: vertical;
 		-webkit-box-direction: normal;
 		-webkit-flex-direction: column;
@@ -50,9 +47,11 @@
 		padding-left:20rpx ;
 }
 .qiang.data-v-b16c9c40{
-		height: 80rpx;
+		height: 150rpx;
 }
 .main.data-v-b16c9c40{
+			
+			margin-left: 40rpx;
 			width: 90%;
 }
 .br_icon.data-v-b16c9c40{
@@ -61,6 +60,7 @@
 		  right: 60rpx;
 		  color: #AAAAAA;
 		  font-size: 108rpx;
+		  z-index: 99;
 }
 .bl_icon.data-v-b16c9c40{
 		 position: fixed;
@@ -68,6 +68,7 @@
 		  left: 60rpx;
 		  color: #AAAAAA;
 		  font-size: 108rpx;
+		  z-index: 99;
 }
 .bl_icon.data-v-b16c9c40:hover{
 		color: #2453f6;
@@ -80,6 +81,7 @@
 		 bottom: 10rpx;
 		 width: 130rpx;
 		 height: 130rpx;
+		 z-index: 99;
 }
 .di.data-v-b16c9c40{
 		display: -webkit-box;
@@ -92,9 +94,9 @@
 		         justify-content:center;
 }
 .bz_tu.data-v-b16c9c40:hover{
-		-webkit-transition: all 0.5s ease;
-		-o-transition: all 0.5s ease;
-		transition: all 0.5s ease;
+		-webkit-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		transition: all 0.3s ease;
 		color: #1AAD19;
 		width: 300rpx;
 		height:300rpx ;

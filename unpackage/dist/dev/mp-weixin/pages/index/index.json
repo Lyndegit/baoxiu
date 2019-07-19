@@ -4,6 +4,7 @@
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
     "uni-icon": "/components/uni-icon/uni-icon",
     "m-search": "/components/mehaotian-search/mehaotian-search",
-    "n-a-u-icard": "/components/NAUI-card/NAUI-card"
+    "n-a-u-icard": "/components/NAUI-card/NAUI-card",
+    "mescroll-uni": "/components/mescroll-uni/mescroll-uni"
   }
 }

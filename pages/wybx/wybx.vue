@@ -1,9 +1,20 @@
 <template>
-	<view>这是报修界面!!!</view>
+	<caidan></caidan>
 </template>
 
 <script>
+	import caidan from '@/components/caidan/caidan.vue';
+	export default{
+		data(){
+			
+		},
+		methods: {
+       
+        },
+	components:{caidan},
+	}
 </script>
 
 <style>
+	
 </style>

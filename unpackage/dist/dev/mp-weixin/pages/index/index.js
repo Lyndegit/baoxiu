@@ -98,7 +98,18 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var NAUIcard = function NAUIcard() {return __webpack_require__.e(/*! import() | components/NAUI-card/NAUI-card */ "components/NAUI-card/NAUI-card").then(__webpack_require__.bind(null, /*! @/components/NAUI-card/NAUI-card.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/NAUI-card/NAUI-card.vue"));};var uniNavBar = function uniNavBar() {return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/uni-nav-bar/uni-nav-bar.vue"));};var uniIcon = function uniIcon() {return __webpack_require__.e(/*! import() | components/uni-icon/uni-icon */ "components/uni-icon/uni-icon").then(__webpack_require__.bind(null, /*! @/components/uni-icon/uni-icon.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/uni-icon/uni-icon.vue"));};var mSearch = function mSearch() {return __webpack_require__.e(/*! import() | components/mehaotian-search/mehaotian-search */ "components/mehaotian-search/mehaotian-search").then(__webpack_require__.bind(null, /*! @/components/mehaotian-search/mehaotian-search.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/mehaotian-search/mehaotian-search.vue"));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var NAUIcard = function NAUIcard() {return __webpack_require__.e(/*! import() | components/NAUI-card/NAUI-card */ "components/NAUI-card/NAUI-card").then(__webpack_require__.bind(null, /*! @/components/NAUI-card/NAUI-card.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/NAUI-card/NAUI-card.vue"));};var uniNavBar = function uniNavBar() {return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/uni-nav-bar/uni-nav-bar.vue"));};var uniIcon = function uniIcon() {return __webpack_require__.e(/*! import() | components/uni-icon/uni-icon */ "components/uni-icon/uni-icon").then(__webpack_require__.bind(null, /*! @/components/uni-icon/uni-icon.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/uni-icon/uni-icon.vue"));};var mSearch = function mSearch() {return __webpack_require__.e(/*! import() | components/mehaotian-search/mehaotian-search */ "components/mehaotian-search/mehaotian-search").then(__webpack_require__.bind(null, /*! @/components/mehaotian-search/mehaotian-search.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/mehaotian-search/mehaotian-search.vue"));};var MescrollUni = function MescrollUni() {return Promise.all(/*! import() | components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/components/mescroll-uni/mescroll-uni.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/mescroll-uni/mescroll-uni.vue"));};var _default =
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -129,6 +140,23 @@ __webpack_require__.r(__webpack_exports__);
 {
   data: function data() {
     return {
+      downOption: {
+        use: true, // 是否启用下拉刷新; 默认true
+        auto: true // 是否在初始化完毕之后自动执行下拉刷新的回调; 默认true
+      },
+      upOption: {
+        use: true, // 是否启用上拉加载; 默认true
+        auto: true, // 是否在初始化完毕之后自动执行上拉加载的回调; 默认true
+        isLock: false, //是否锁定上拉加载(设为true,可用于不触发upCallback,只保留回到顶部的功能)
+        page: {
+          num: 0, // 当前页码,默认0,回调之前会加1,即callback(page)会从1开始
+          size: 10 // 每页数据的数量,默认10
+        },
+        noMoreSize: 3, // 配置列表的总数量要大于等于5条才显示'-- END --'的提示
+        empty: {
+          tip: '暂无相关数据' } },
+
+
       // val1: '',   搜索 
       detail: {
         id: '12',
@@ -149,7 +177,7 @@ __webpack_require__.r(__webpack_exports__);
         show_times: '0',
         anony: false,
         avatarurl: '../../static/logo.png',
-        creat_time: '1552748677' } };
+        creat_time: '2019/7/17' } };
 
 
   },
@@ -164,10 +192,61 @@ __webpack_require__.r(__webpack_exports__);
       uni.navigateTo({
         url: '../wybx/wybx' });
 
+    },
+    downCallback: function downCallback(mescroll) {
+      // 第1种: 请求具体接口
+      uni.request({
+        url: 'xxxx',
+        success: function success() {
+          // 成功隐藏下拉加载状态
+          mescroll.endSuccess();
+        },
+        fail: function fail() {
+          // 失败隐藏下拉加载状态
+          mescroll.endErr();
+        } });
+
+    },
+    upCallback: function upCallback(mescroll) {var _this = this;
+      // 此时mescroll会携带page的参数:
+      var pageNum = mescroll.num; // 页码, 默认从1开始
+      var pageSize = mescroll.size; // 页长, 默认每页10条
+      uni.request({
+        url: 'xxxx?pageNum=' + pageNum + '&pageSize=' + pageSize,
+        success: function success(data) {
+          // 接口返回的当前页数据列表 (数组)
+          var curPageData = data.xxx;
+          // 接口返回的总页数 (比如列表有26个数据,每页10条,共3页; 则totalPage值为3)
+          var totalPage = data.xxx;
+          // 接口返回的总数据量(比如列表有26个数据,每页10条,共3页; 则totalSize值为26)
+          var totalSize = data.xxx;
+          // 接口返回的是否有下一页 (true/false)
+          var hasNext = data.xxx;
+
+          // 成功隐藏下拉加载状态
+          //方法一(推荐): 后台接口有返回列表的总页数 totalPage
+          mescroll.endByPage(curPageData.length, totalPage);
+
+          //方法二(推荐): 后台接口有返回列表的总数据量 totalSize
+          //mescroll.endBySize(curPageData.length, totalSize); 
+
+          //方法三(推荐): 您有其他方式知道是否有下一页 hasNext
+          //mescroll.endSuccess(curPageData.length, hasNext); 
+
+          //设置列表数据
+          if (mescroll.num == 1) _this.dataList = []; //如果是第一页需手动置空列表
+          _this.dataList = _this.dataList.concat(curPageData); //追加新数据
+        },
+        fail: function fail() {
+          // 失败隐藏下拉加载状态
+          mescroll.endErr();
+
+        } });
+
     } },
 
 
-  components: { uniNavBar: uniNavBar, uniIcon: uniIcon, mSearch: mSearch, NAUIcard: NAUIcard } };exports.default = _default;
+  components: { uniNavBar: uniNavBar, uniIcon: uniIcon, mSearch: mSearch, NAUIcard: NAUIcard, MescrollUni: MescrollUni } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 
 /***/ }),

@@ -1,1 +1,1 @@
-<view class="_div"></view>
+<caidan vue-id="1" bind:__l="__l"></caidan>
