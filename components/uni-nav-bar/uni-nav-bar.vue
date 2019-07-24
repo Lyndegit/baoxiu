@@ -178,7 +178,7 @@
         display: flex;
         flex-direction: row;
         width: 100%;
-        height:44px;
+      height:44px;
         line-height:44px;
         font-size: 16px;
     }

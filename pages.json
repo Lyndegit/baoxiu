@@ -1,26 +1,57 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path":"pages/login/login",
+			"style":{
+				"navigationStyle":"custom"
+			}
+		},
+		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "报修列表",
+				"navigationStyle": "custom",
 				"app-plus" : {
 				"bounce" : "none" ,// 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
 				"enablePullDownRefresh" : false
 			}
 			}
-		},{
-			"path":"pages/wybx/wybx",
+			},
+		{
+			"path":"pages/wybx/my",
 			"style":{
-				"navigationBarTitleText":"一键报修"
+				"navigationStyle":"custom"
 			}
 			},
 			{
 				"path":"pages/my/my",
 				"style":{
-					"navigationBarTitleText":"个人中心"
+					"navigationStyle":"custom"
 				}
-			}
+			},{
+				"path":"pages/my/info/info",
+				"style":{
+					"navigationStyle":"custom"
+				}
+			},
+	      {
+	        "path": "pages/my/modify/modify",
+	        "style": {
+	         "navigationStyle":"custom"
+	        }
+	      },{
+			  "path":"pages/my/forgot/forgot",
+			  "style":{
+				  "navigationStyle":"custom"
+			  }
+		  },{
+			  "path":"pages/my/register/register",
+			  "style":{"navigationStyle":"custom"}
+		  },{
+			  "path":"pages/liaotian/liaotian",
+			  "style":{
+				  "navigationStyle":"custom"
+			  }
+		  }
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

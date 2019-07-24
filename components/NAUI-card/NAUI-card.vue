@@ -5,31 +5,31 @@
 				<view class="cu-item">
 					<view class="cu-avatar round lg">
 					<!-- 头像，匿名时显示统一的匿名头像，若需自定义请自行修改 -->
-						<image class="avatar round" :src="listData.anony ? 'http://img.nauzone.cn/20141118153114_aiRyY.thumb.700_0.jpeg' : listData.avatarurl"></image>
-						<view v-if="listData.mark" class="cu-tag badge bg-blue">V</view>
+						<image class="avatar round" :src="anony ? 'http://img.nauzone.cn/20141118153114_aiRyY.thumb.700_0.jpeg' : avatarurl"></image>
+						<view v-if="mark" class="cu-tag badge bg-blue">V</view>
 					</view>
 					<view class="content padding-tbl">
 						<view class="henflex">
-							<view>{{listData.anony? '一位路过的吃瓜群众' : listData.user_name}}</view>
-							<view class="right" v-if="listData.mark">
+							<view>{{anony? '一位路过的吃瓜群众' : username}}</view>
+							<view class="right" v-if="mark">
 								<view class="cu-tag round bg-blue sm">官方</view>
 							</view>
-							<view class="right" v-if="listData.anony">
+							<view class="right" v-if="anony">
 								<view class="cu-tag round bg-orange sm">匿名</view>
 							</view>
-							<view class="huati text-orange text-bold">#{{ listData.type }}#</view>
+							<view class="huati text-orange text-bold">#{{ type }}#</view>
 						</view>
-						<view class="text-gray text-sm flex justify-between">{{listData.creat_time}}</view>
+						<view class="text-gray text-sm flex justify-between">{{creat_time}}</view>
 					</view>
 				</view>
 			</view>
-			<view class="text-content" @click="toDetail(listData.id)">{{ listData.content }}</view>
-			<view class="grid col-1 flex-sub padding-lr" @click="previewimg(listData.img_url)">
-				<image class="bg-img only-img" :src="listData.img_url[0]"></image>
+			<view class="text-content" @click="toDetail(id)">{{ content }}</view>
+			<view class="grid col-1 flex-sub padding-lr" @click="previewimg(imgurl)">
+				<image class="bg-img only-img" :src="imgurl"></image>
 			</view>
 			<view class="text-gray text-sm text-right padding">
-				<text class="right">浏览:{{ listData.show_times }}</text>
-				<text class="right">点赞:{{ listData.points }}</text>
+				<text class="right">浏览:{{ show_times }}</text>
+				<text class="right">点赞:{{ points }}</text>
 			</view>
 		</view>
 	</view>
@@ -37,22 +37,38 @@
 <script>
 export default {
 	name: "NAUI-card",
-	
+	data(){
+		return{
+			
+		}
+	},
 	props: {
 		listData: {
-			type: Object, 
-		}
+			type: Array, 
+		},
+		points:Number,
+		show_times:Number,
+		imgurl:String,
+		content:String,
+		id:Number,
+		username:String,
+		mark:Boolean,
+		anony:Boolean,
+		type:String,
+		avatarurl:String,
+		creat_time:String,
 	},
 	created:function(e){
 		this.listData.creat_time = this.dateTimeFormatter(parseInt(this.listData.creat_time)*1000)
 	},
 	methods:{
 		previewimg(url){//预览卡片图片
-			uni.previewImage({
-				urls:url,
-				indicator: "number",
-				loop:true,
-			})
+		console.log(url)
+			// uni.previewImage({
+			// 	urls:url,
+			// 	indicator: "number",
+			// 	loop:false,
+			// })
 		},
 // 		toDetail(id){//卡片详情跳转，信息及详情页自定义
 // 			uni.navigateTo({
@@ -83,7 +99,7 @@ export default {
 		checkAddZone (num) {
 		  return num<10 ? '0' + num.toString() : num
 		},
-	}
+	},
 }
 </script>
 <style>

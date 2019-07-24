@@ -733,6 +733,91 @@ createPage(_index.default);
 
 /***/ }),
 
+/***/ "../../../chengxuyuan/Uni_de/baoxiu/main.js?{\"page\":\"pages%2Fliaotian%2Fliaotian\"}":
+/*!***********************************************************************************!*\
+  !*** F:/chengxuyuan/Uni_de/baoxiu/main.js?{"page":"pages%2Fliaotian%2Fliaotian"} ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../chengxuyuan/Uni_de/baoxiu/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _liaotian = _interopRequireDefault(__webpack_require__(/*! ./pages/liaotian/liaotian.vue */ "../../../chengxuyuan/Uni_de/baoxiu/pages/liaotian/liaotian.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_liaotian.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../chengxuyuan/Uni_de/baoxiu/main.js?{\"page\":\"pages%2Flogin%2Flogin\"}":
+/*!*****************************************************************************!*\
+  !*** F:/chengxuyuan/Uni_de/baoxiu/main.js?{"page":"pages%2Flogin%2Flogin"} ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../chengxuyuan/Uni_de/baoxiu/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _login = _interopRequireDefault(__webpack_require__(/*! ./pages/login/login.vue */ "../../../chengxuyuan/Uni_de/baoxiu/pages/login/login.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_login.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../chengxuyuan/Uni_de/baoxiu/main.js?{\"page\":\"pages%2Fmy%2Fforgot%2Fforgot\"}":
+/*!************************************************************************************!*\
+  !*** F:/chengxuyuan/Uni_de/baoxiu/main.js?{"page":"pages%2Fmy%2Fforgot%2Fforgot"} ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../chengxuyuan/Uni_de/baoxiu/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _forgot = _interopRequireDefault(__webpack_require__(/*! ./pages/my/forgot/forgot.vue */ "../../../chengxuyuan/Uni_de/baoxiu/pages/my/forgot/forgot.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_forgot.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../chengxuyuan/Uni_de/baoxiu/main.js?{\"page\":\"pages%2Fmy%2Finfo%2Finfo\"}":
+/*!********************************************************************************!*\
+  !*** F:/chengxuyuan/Uni_de/baoxiu/main.js?{"page":"pages%2Fmy%2Finfo%2Finfo"} ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../chengxuyuan/Uni_de/baoxiu/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _info = _interopRequireDefault(__webpack_require__(/*! ./pages/my/info/info.vue */ "../../../chengxuyuan/Uni_de/baoxiu/pages/my/info/info.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_info.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../chengxuyuan/Uni_de/baoxiu/main.js?{\"page\":\"pages%2Fmy%2Fmodify%2Fmodify\"}":
+/*!************************************************************************************!*\
+  !*** F:/chengxuyuan/Uni_de/baoxiu/main.js?{"page":"pages%2Fmy%2Fmodify%2Fmodify"} ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../chengxuyuan/Uni_de/baoxiu/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _modify = _interopRequireDefault(__webpack_require__(/*! ./pages/my/modify/modify.vue */ "../../../chengxuyuan/Uni_de/baoxiu/pages/my/modify/modify.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_modify.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
 /***/ "../../../chengxuyuan/Uni_de/baoxiu/main.js?{\"page\":\"pages%2Fmy%2Fmy\"}":
 /*!***********************************************************************!*\
   !*** F:/chengxuyuan/Uni_de/baoxiu/main.js?{"page":"pages%2Fmy%2Fmy"} ***!
@@ -750,10 +835,10 @@ createPage(_my.default);
 
 /***/ }),
 
-/***/ "../../../chengxuyuan/Uni_de/baoxiu/main.js?{\"page\":\"pages%2Fwybx%2Fwybx\"}":
-/*!***************************************************************************!*\
-  !*** F:/chengxuyuan/Uni_de/baoxiu/main.js?{"page":"pages%2Fwybx%2Fwybx"} ***!
-  \***************************************************************************/
+/***/ "../../../chengxuyuan/Uni_de/baoxiu/main.js?{\"page\":\"pages%2Fmy%2Fregister%2Fregister\"}":
+/*!****************************************************************************************!*\
+  !*** F:/chengxuyuan/Uni_de/baoxiu/main.js?{"page":"pages%2Fmy%2Fregister%2Fregister"} ***!
+  \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -761,8 +846,25 @@ createPage(_my.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../chengxuyuan/Uni_de/baoxiu/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _wybx = _interopRequireDefault(__webpack_require__(/*! ./pages/wybx/wybx.vue */ "../../../chengxuyuan/Uni_de/baoxiu/pages/wybx/wybx.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_wybx.default);
+var _register = _interopRequireDefault(__webpack_require__(/*! ./pages/my/register/register.vue */ "../../../chengxuyuan/Uni_de/baoxiu/pages/my/register/register.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_register.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../chengxuyuan/Uni_de/baoxiu/main.js?{\"page\":\"pages%2Fwybx%2Fmy\"}":
+/*!*************************************************************************!*\
+  !*** F:/chengxuyuan/Uni_de/baoxiu/main.js?{"page":"pages%2Fwybx%2Fmy"} ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../chengxuyuan/Uni_de/baoxiu/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _my = _interopRequireDefault(__webpack_require__(/*! ./pages/wybx/my.vue */ "../../../chengxuyuan/Uni_de/baoxiu/pages/wybx/my.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_my.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
 
 /***/ }),

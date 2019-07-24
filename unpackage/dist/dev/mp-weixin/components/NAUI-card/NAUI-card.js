@@ -98,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -137,22 +137,38 @@ __webpack_require__.r(__webpack_exports__);
 var _default =
 {
   name: "NAUI-card",
+  data: function data() {
+    return {};
 
+
+  },
   props: {
     listData: {
-      type: Object } },
+      type: Array },
 
+    points: Number,
+    show_times: Number,
+    imgurl: String,
+    content: String,
+    id: Number,
+    username: String,
+    mark: Boolean,
+    anony: Boolean,
+    type: String,
+    avatarurl: String,
+    creat_time: String },
 
   created: function created(e) {
     this.listData.creat_time = this.dateTimeFormatter(parseInt(this.listData.creat_time) * 1000);
   },
   methods: {
     previewimg: function previewimg(url) {//预览卡片图片
-      uni.previewImage({
-        urls: url,
-        indicator: "number",
-        loop: true });
-
+      console.log(url);
+      // uni.previewImage({
+      // 	urls:url,
+      // 	indicator: "number",
+      // 	loop:false,
+      // })
     },
     // 		toDetail(id){//卡片详情跳转，信息及详情页自定义
     // 			uni.navigateTo({
@@ -183,7 +199,6 @@ var _default =
     checkAddZone: function checkAddZone(num) {
       return num < 10 ? '0' + num.toString() : num;
     } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 
 /***/ }),
 

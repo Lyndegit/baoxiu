@@ -1,8 +1,14 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/index/index",
-    "pages/wybx/wybx",
-    "pages/my/my"
+    "pages/wybx/my",
+    "pages/my/my",
+    "pages/my/info/info",
+    "pages/my/modify/modify",
+    "pages/my/forgot/forgot",
+    "pages/my/register/register",
+    "pages/liaotian/liaotian"
   ],
   "subPackages": [],
   "window": {

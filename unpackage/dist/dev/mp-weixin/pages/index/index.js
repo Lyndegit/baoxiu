@@ -98,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var NAUIcard = function NAUIcard() {return __webpack_require__.e(/*! import() | components/NAUI-card/NAUI-card */ "components/NAUI-card/NAUI-card").then(__webpack_require__.bind(null, /*! @/components/NAUI-card/NAUI-card.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/NAUI-card/NAUI-card.vue"));};var uniNavBar = function uniNavBar() {return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/uni-nav-bar/uni-nav-bar.vue"));};var uniIcon = function uniIcon() {return __webpack_require__.e(/*! import() | components/uni-icon/uni-icon */ "components/uni-icon/uni-icon").then(__webpack_require__.bind(null, /*! @/components/uni-icon/uni-icon.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/uni-icon/uni-icon.vue"));};var mSearch = function mSearch() {return __webpack_require__.e(/*! import() | components/mehaotian-search/mehaotian-search */ "components/mehaotian-search/mehaotian-search").then(__webpack_require__.bind(null, /*! @/components/mehaotian-search/mehaotian-search.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/mehaotian-search/mehaotian-search.vue"));};var MescrollUni = function MescrollUni() {return Promise.all(/*! import() | components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/components/mescroll-uni/mescroll-uni.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/mescroll-uni/mescroll-uni.vue"));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var cmdNavBar = function cmdNavBar() {return __webpack_require__.e(/*! import() | components/cmd-nav-bar/cmd-nav-bar */ "components/cmd-nav-bar/cmd-nav-bar").then(__webpack_require__.bind(null, /*! @/components/cmd-nav-bar/cmd-nav-bar.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/cmd-nav-bar/cmd-nav-bar.vue"));};var NAUIcard = function NAUIcard() {return __webpack_require__.e(/*! import() | components/NAUI-card/NAUI-card */ "components/NAUI-card/NAUI-card").then(__webpack_require__.bind(null, /*! @/components/NAUI-card/NAUI-card.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/NAUI-card/NAUI-card.vue"));};var uniNavBar = function uniNavBar() {return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/uni-nav-bar/uni-nav-bar.vue"));};var uniIcon = function uniIcon() {return __webpack_require__.e(/*! import() | components/uni-icon/uni-icon */ "components/uni-icon/uni-icon").then(__webpack_require__.bind(null, /*! @/components/uni-icon/uni-icon.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/uni-icon/uni-icon.vue"));};var mSearch = function mSearch() {return __webpack_require__.e(/*! import() | components/mehaotian-search/mehaotian-search */ "components/mehaotian-search/mehaotian-search").then(__webpack_require__.bind(null, /*! @/components/mehaotian-search/mehaotian-search.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/mehaotian-search/mehaotian-search.vue"));};var MescrollUni = function MescrollUni() {return Promise.all(/*! import() | components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/components/mescroll-uni/mescroll-uni.vue */ "../../../chengxuyuan/Uni_de/baoxiu/components/mescroll-uni/mescroll-uni.vue"));};
 
 
 
@@ -135,12 +135,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
+var _self;var _default =
 {
   data: function data() {
     return {
+      categoryList: [],
+      mescroll: null,
+      val: "", //当前搜索关键词
       downOption: {
         use: true, // 是否启用下拉刷新; 默认true
         auto: true // 是否在初始化完毕之后自动执行下拉刷新的回调; 默认true 
@@ -155,43 +156,26 @@ __webpack_require__.r(__webpack_exports__);
         },
         noMoreSize: 3, // 配置列表的总数量要大于等于5条才显示'-- END --'的提示
         empty: {
-          tip: '暂无相关数据' } },
+          tip: '暂无相关数据' } } };
 
-
-      // val1: '',   搜索 
-      detail: {
-        id: '12',
-        content: '我的水龙头坏了！',
-        img_url: [
-        '../../static/u=3178366586,3960110891&fm=26&gp=0.jpg',
-        '../../static/logo.png'],
-
-
-
-
-
-
-        user_name: 'lyn',
-        mark: true,
-        type: '报修',
-        points: '0',
-        show_times: '0',
-        anony: false,
-        avatarurl: '../../static/logo.png',
-        creat_time: '2019/7/17' } };
 
 
   },
   onLoad: function onLoad() {
-
   },
   methods: {
-    // search(e, val) {
-    // console.log(e, val);    搜索
-    // this['val'+val] = e;
+    search: function search(val) {
+      console.log(val);
+      this.val = val;
+    },
     tiaozhuan: function tiaozhuan() {
       uni.navigateTo({
-        url: '../wybx/wybx' });
+        url: '../wybx/my' });
+
+    },
+    liaotian: function liaotian() {
+      uni.navigateTo({
+        url: '../liaotian/liaotian' });
 
     },
     zhuan: function zhuan() {
@@ -201,11 +185,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     downCallback: function downCallback(mescroll) {
       // 第1种: 请求具体接口
+      _self = this;
       uni.request({
-        url: 'xxxx',
-        success: function success() {
+        url: 'http://192.168.30.50:8081/findAll',
+        success: function success(e) {
           // 成功隐藏下拉加载状态
           mescroll.endSuccess();
+          console.log(e.data.data);
+          _self.categoryList = e.data.data;
         },
         fail: function fail() {
           // 失败隐藏下拉加载状态
@@ -218,7 +205,7 @@ __webpack_require__.r(__webpack_exports__);
       var pageNum = mescroll.num; // 页码, 默认从1开始
       var pageSize = mescroll.size; // 页长, 默认每页10条
       uni.request({
-        url: 'xxxx?pageNum=' + pageNum + '&pageSize=' + pageSize,
+        url: 'http://192.168.30.50:8081/findAll?pageNum=' + pageNum + '&pageSize=' + pageSize,
         success: function success(data) {
           // 接口返回的当前页数据列表 (数组)
           var curPageData = data.xxx;
@@ -251,8 +238,13 @@ __webpack_require__.r(__webpack_exports__);
 
     } },
 
+  watch: {
+    val: function val() {
+      // 重置列表数据 (tip:此处最好做节流,避免输入过快多次请求)
+      this.mescroll.resetUpScroll();
+    } },
 
-  components: { uniNavBar: uniNavBar, uniIcon: uniIcon, mSearch: mSearch, NAUIcard: NAUIcard, MescrollUni: MescrollUni } };exports.default = _default;
+  components: { uniNavBar: uniNavBar, uniIcon: uniIcon, mSearch: mSearch, NAUIcard: NAUIcard, MescrollUni: MescrollUni, cmdNavBar: cmdNavBar } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 
 /***/ }),
