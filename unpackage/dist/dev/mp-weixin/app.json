@@ -8,7 +8,9 @@
     "pages/my/modify/modify",
     "pages/my/forgot/forgot",
     "pages/my/register/register",
-    "pages/liaotian/liaotian"
+    "pages/liaotian/liaotian",
+    "pages/jiejue/w_jiejue",
+    "pages/jiejue/y_jiejue"
   ],
   "subPackages": [],
   "window": {

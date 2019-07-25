@@ -58,8 +58,9 @@ export default {
 		avatarurl:String,
 		creat_time:String,
 	},
-	created:function(e){
-		this.listData.creat_time = this.dateTimeFormatter(parseInt(this.listData.creat_time)*1000)
+	created:function(){
+		console.log(this.creat_time)
+		this.creat_time = this.dateTimeFormatter(parseInt(this.creat_time)*1000)
 	},
 	methods:{
 		previewimg(url){//预览卡片图片

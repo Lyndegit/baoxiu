@@ -51,6 +51,16 @@
 			  "style":{
 				  "navigationStyle":"custom"
 			  }
+		  },{
+			  "path":"pages/jiejue/w_jiejue",
+			  "style":{
+				  "navigationStyle":"custom"
+			  }
+		  },{
+			  "path":"pages/jiejue/y_jiejue",
+			  "style":{
+				  "navigationStyle":"custom"
+			  }
 		  }
 	],
 	"globalStyle": {

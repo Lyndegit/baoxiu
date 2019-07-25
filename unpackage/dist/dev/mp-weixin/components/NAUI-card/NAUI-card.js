@@ -158,8 +158,9 @@ var _default =
     avatarurl: String,
     creat_time: String },
 
-  created: function created(e) {
-    this.listData.creat_time = this.dateTimeFormatter(parseInt(this.listData.creat_time) * 1000);
+  created: function created() {
+    console.log(this.creat_time);
+    this.creat_time = this.dateTimeFormatter(parseInt(this.creat_time) * 1000);
   },
   methods: {
     previewimg: function previewimg(url) {//预览卡片图片

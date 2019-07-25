@@ -9,10 +9,10 @@
             </uni-nav-bar>
 			<!-- <text class="sss">搜索的值：{{val1}}</text> -->  
 		</view>
-		<mescroll-uni :down="downOption" @down="downCallback" :up="upOption" @up="upCallback" >
+		<mescroll-uni :down="downOption" @down="downCallback"  ><!-- :up="upOption" @up="upCallback" -->
 		<view class="qiang"></view>
 		<view class="main" v-for="dataList in categoryList" :key="dataList.fixid">  
-			<NAUIcard :listData="categoryList"  :id="dataList.fixid" :imgurl="dataList.imgurl" :content="dataList.content" :avatarurl="dataList.touxiang"  :type="dataList.type" :creat_time="dataList.timenow" :username="dataList.username"></NAUIcard>
+			<NAUIcard :listData="categoryList"  :id="dataList.fixid" :imgurl="dataList.imgurl" :content="dataList.content" :avatarurl="dataList.touxiang"  :type="dataList.type1" :creat_time="dataList.timenow" :username="dataList.username"></NAUIcard>
 		</view>
 		</mescroll-uni>
 		
@@ -46,22 +46,20 @@
 						use: true, // 是否启用下拉刷新; 默认true
 						auto: true, // 是否在初始化完毕之后自动执行下拉刷新的回调; 默认true 
 					},
-				upOption: {
-						use: true, // 是否启用上拉加载; 默认true
-						auto: true, // 是否在初始化完毕之后自动执行上拉加载的回调; 默认true
-						isLock: false,//是否锁定上拉加载(设为true,可用于不触发upCallback,只保留回到顶部的功能)
-						page: {
-							num: 0, // 当前页码,默认0,回调之前会加1,即callback(page)会从1开始
-							size: 10 // 每页数据的数量,默认10
-						},
-						noMoreSize: 3, // 配置列表的总数量要大于等于5条才显示'-- END --'的提示
-						empty: {
-							tip: '暂无相关数据'
-						}
-					},
+				// upOption: {
+				// 		use: true, // 是否启用上拉加载; 默认true
+				// 		auto: true, // 是否在初始化完毕之后自动执行上拉加载的回调; 默认true
+				// 		isLock: false,//是否锁定上拉加载(设为true,可用于不触发upCallback,只保留回到顶部的功能)
+				// 		page: {
+				// 			num: 0, // 当前页码,默认0,回调之前会加1,即callback(page)会从1开始
+				// 			size: 10 // 每页数据的数量,默认10
+				// 		},
+				// 		noMoreSize: 3, // 配置列表的总数量要大于等于5条才显示'-- END --'的提示
+				// 		empty: {
+				// 			tip: '暂无相关数据'
+				// 		}
+				// 	},
 			}
-		},
-		onLoad() {
 		},
 		methods: {
             search(val) {
@@ -87,7 +85,7 @@
 					// 第1种: 请求具体接口
 					_self = this
 					uni.request({
-						url: 'http://192.168.30.50:8081/findAll',
+						url: 'http://192.168.30.41:8081/findAll',
 						success: (e) => {
 							// 成功隐藏下拉加载状态
 							mescroll.endSuccess()
@@ -100,43 +98,43 @@
 						}
 					})
         },
-		upCallback(mescroll) {
-					// 此时mescroll会携带page的参数:
-					let pageNum = mescroll.num; // 页码, 默认从1开始
-					let pageSize = mescroll.size; // 页长, 默认每页10条
-					uni.request({
-						url: 'http://192.168.30.50:8081/findAll?pageNum='+pageNum+'&pageSize='+pageSize,
-						success: (data) => {
-							// 接口返回的当前页数据列表 (数组)
-							let curPageData = data.xxx; 
-							// 接口返回的总页数 (比如列表有26个数据,每页10条,共3页; 则totalPage值为3)
-							let totalPage = data.xxx; 
-							// 接口返回的总数据量(比如列表有26个数据,每页10条,共3页; 则totalSize值为26)
-							let totalSize = data.xxx; 
-							// 接口返回的是否有下一页 (true/false)
-							let hasNext = data.xxx; 
-							
-							// 成功隐藏下拉加载状态
-							//方法一(推荐): 后台接口有返回列表的总页数 totalPage
-							mescroll.endByPage(curPageData.length, totalPage); 
-							
-							//方法二(推荐): 后台接口有返回列表的总数据量 totalSize
-							//mescroll.endBySize(curPageData.length, totalSize); 
-							
-							//方法三(推荐): 您有其他方式知道是否有下一页 hasNext
-							//mescroll.endSuccess(curPageData.length, hasNext); 
-							
-							//设置列表数据
-							if(mescroll.num == 1) this.dataList = []; //如果是第一页需手动置空列表
-							this.dataList = this.dataList.concat(curPageData); //追加新数据
-						},
-						fail: () => {
-							// 失败隐藏下拉加载状态
-							mescroll.endErr()
-						
-						},
-						})
-						}
+		// upCallback(mescroll) {
+		// 			// 此时mescroll会携带page的参数:
+		// 			let pageNum = mescroll.num; // 页码, 默认从1开始
+		// 			let pageSize = mescroll.size; // 页长, 默认每页10条
+		// 			uni.request({
+		// 				url: 'http://192.168.30.41:8081/findAll?pageNum='+pageNum+'&pageSize='+pageSize,
+		// 				success: (data) => {
+		// 					// 接口返回的当前页数据列表 (数组)
+		// 					let curPageData = data.xxx; 
+		// 					// 接口返回的总页数 (比如列表有26个数据,每页10条,共3页; 则totalPage值为3)
+		// 					let totalPage = data.xxx; 
+		// 					// 接口返回的总数据量(比如列表有26个数据,每页10条,共3页; 则totalSize值为26)
+		// 					let totalSize = data.xxx; 
+		// 					// 接口返回的是否有下一页 (true/false)
+		// 					let hasNext = data.xxx; 
+		// 					
+		// 					// 成功隐藏下拉加载状态
+		// 					//方法一(推荐): 后台接口有返回列表的总页数 totalPage
+		// 					mescroll.endByPage(curPageData.length, totalPage); 
+		// 					
+		// 					//方法二(推荐): 后台接口有返回列表的总数据量 totalSize
+		// 					//mescroll.endBySize(curPageData.length, totalSize); 
+		// 					
+		// 					//方法三(推荐): 您有其他方式知道是否有下一页 hasNext
+		// 					//mescroll.endSuccess(curPageData.length, hasNext); 
+		// 					
+		// 					//设置列表数据
+		// 					if(mescroll.num == 1) this.dataList = []; //如果是第一页需手动置空列表
+		// 					this.dataList = this.dataList.concat(curPageData); //追加新数据
+		// 				},
+		// 				fail: () => {
+		// 					// 失败隐藏下拉加载状态
+		// 					mescroll.endErr()
+		// 				
+		// 				},
+		// 				})
+		// 				}
 						},
 	    watch:{
 			val(){
