@@ -133,7 +133,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
 var _default =
 {
   name: "NAUI-card",
@@ -147,7 +146,7 @@ var _default =
       type: Array },
 
     points: Number,
-    show_times: Number,
+    show_times: String,
     imgurl: String,
     content: String,
     id: Number,
@@ -159,7 +158,6 @@ var _default =
     creat_time: String },
 
   created: function created() {
-    console.log(this.creat_time);
     this.creat_time = this.dateTimeFormatter(parseInt(this.creat_time) * 1000);
   },
   methods: {

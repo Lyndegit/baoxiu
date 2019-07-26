@@ -145,27 +145,36 @@ var _self;var _default =
       downOption: {
         use: true, // 是否启用下拉刷新; 默认true
         auto: true // 是否在初始化完毕之后自动执行下拉刷新的回调; 默认true 
-      }
-      // upOption: {
-      // 		use: true, // 是否启用上拉加载; 默认true
-      // 		auto: true, // 是否在初始化完毕之后自动执行上拉加载的回调; 默认true
-      // 		isLock: false,//是否锁定上拉加载(设为true,可用于不触发upCallback,只保留回到顶部的功能)
-      // 		page: {
-      // 			num: 0, // 当前页码,默认0,回调之前会加1,即callback(page)会从1开始
-      // 			size: 10 // 每页数据的数量,默认10
-      // 		},
-      // 		noMoreSize: 3, // 配置列表的总数量要大于等于5条才显示'-- END --'的提示
-      // 		empty: {
-      // 			tip: '暂无相关数据'
-      // 		}
-      // 	},
-    };
+      },
+      upOption: {
+        use: true, // 是否启用上拉加载; 默认true
+        auto: true, // 是否在初始化完毕之后自动执行上拉加载的回调; 默认true
+        isLock: false, //是否锁定上拉加载(设为true,可用于不触发upCallback,只保留回到顶部的功能)
+        page: {
+          num: 0, // 当前页码,默认0,回调之前会加1,即callback(page)会从1开始
+          size: 10 // 每页数据的数量,默认10
+        },
+        noMoreSize: 3, // 配置列表的总数量要大于等于5条才显示'-- END --'的提示
+        empty: {
+          tip: '暂无相关数据' } } };
+
+
+
   },
+  watch: {
+    val: function val() {
+      // 重置列表数据 (tip:此处最好做节流,避免输入过快多次请求)
+      this.mescroll.resetUpScroll();
+    } },
+
   methods: {
-    search: function search(val) {
-      console.log(val);
-      this.val = val;
+    mescrollInit: function mescrollInit(mescroll) {
+      this.mescroll = mescroll;
     },
+    //          search(val) {
+    //          console.log(val);
+    // this.val = val
+    //          },
     tiaozhuan: function tiaozhuan() {
       uni.navigateTo({
         url: '../wybx/my' });
@@ -184,15 +193,66 @@ var _self;var _default =
     downCallback: function downCallback(mescroll) {
       // 第1种: 请求具体接口
       _self = this;
+      mescroll.resetUpScroll();
       uni.request({
-        url: 'http://192.168.30.41:8081/findAll',
+        url: this.$api + '/findAll',
         success: function success(e) {
           // 成功隐藏下拉加载状态
-          mescroll.endSuccess();
-          console.log(e.data.data);
+          mescroll.endSuccess(e.data.data.length);
           _self.categoryList = e.data.data;
         },
         fail: function fail() {
+          // 联网失败回调隐藏下拉加载状态
+          mescroll.endErr();
+          uni.showLoading({
+            title: '网络异常，请及时联系维修员或检查自身网络后再试' });
+
+        } });
+
+    },
+    upCallback: function upCallback(mescroll) {
+      // 此时mescroll会携带page的参数:
+      // let pageNum = mescroll.num; // 页码, 默认从1开始
+      // let pageSize = mescroll.size; // 页长, 默认每页10条
+      // uni.request({
+      // 	url: this.$api+'/findAll?pageNum='+pageNum+'&pageSize='+pageSize,
+      // 	success: (data) => {
+      // 		// 接口返回的当前页数据列表 (数组)
+      // 		let curPageData = data.xxx; 
+      // 		// 接口返回的总页数 (比如列表有26个数据,每页10条,共3页; 则totalPage值为3)
+      // 		let totalPage = data.xxx; 
+      // 		// 接口返回的总数据量(比如列表有26个数据,每页10条,共3页; 则totalSize值为26)
+      // 		let totalSize = data.xxx; 
+      // 		// 接口返回的是否有下一页 (true/false)
+      // 		let hasNext = data.xxx; 
+      // 		
+      // 		// 成功隐藏下拉加载状态
+      // 		//方法一(推荐): 后台接口有返回列表的总页数 totalPage
+      // 		mescroll.endByPage(curPageData.length, totalPage); 
+      // 		
+      // 		//方法二(推荐): 后台接口有返回列表的总数据量 totalSize
+      // 		//mescroll.endBySize(curPageData.length, totalSize); 
+      // 		
+      // 		//方法三(推荐): 您有其他方式知道是否有下一页 hasNext
+      // 		//mescroll.endSuccess(curPageData.length, hasNext); 
+      // 		
+      // 		//设置列表数据
+      // 		if(mescroll.num == 1) this.dataList = []; //如果是第一页需手动置空列表
+      // 		this.dataList = this.dataList.concat(curPageData); //追加新数据
+      _self = this;
+      if (mescroll.num == 1) this.pdList = [];
+      uni.request({
+        url: this.$api + '/sousuo',
+        method: 'GET',
+        data: {
+          input: this.val },
+
+        success: function success(e) {
+          mescroll.endSuccess(e.data.data.length);
+          console.log(e);
+
+          _self.categoryList = e.data.data;
+        }, fail: function fail() {
           // 失败隐藏下拉加载状态
           mescroll.endErr();
         } });
@@ -201,47 +261,24 @@ var _self;var _default =
 
 
 
+  onReady: function onReady() {var _this = this;
+    console.log(this.$api);
+    console.log(this.$store.state.userName.username);
+    uni.request({
+      url: this.$api + '/chazhao',
+      data: {
+        username: this.$store.state.userName.username },
 
+      success: function success(res) {
+        _this.$store.commit('receiveMsg', {
+          avatarurl: res.data.data.touxiang,
+          sex: res.data.data.sex,
+          tel: res.data.data.tel,
+          password: res.data.data.password });
 
+      } });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  watch: {
-    val: function val() {
-      // 重置列表数据 (tip:此处最好做节流,避免输入过快多次请求)
-      this.mescroll.resetUpScroll();
-    } },
-
+  },
   components: { uniNavBar: uniNavBar, uniIcon: uniIcon, mSearch: mSearch, NAUIcard: NAUIcard, MescrollUni: MescrollUni, cmdNavBar: cmdNavBar } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 

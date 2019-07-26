@@ -21,10 +21,6 @@
 			"current": -1,
 			"list": []
 		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
 		"game": {
 			"current": -1,
 			"list": []
@@ -33,10 +29,10 @@
 			"current": 0,
 			"list": [
 				{
-					"id": -1,
-					"name": "pages/jiejue/w_jiejue",
-					"pathName": "pages/jiejue/w_jiejue",
-					"scene": null
+					"name": "",
+					"path": "",
+					"query": "",
+					"id": 0
 				}
 			]
 		}

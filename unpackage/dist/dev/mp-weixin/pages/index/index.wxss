@@ -126,4 +126,21 @@
 		bottom: 0;
           z-index: 99;
 }
+.word-input.data-v-b16c9c40{
+		display: inline-block;
+		width: 80%;
+		padding:4rpx;
+		font-size: 24rpx;
+		margin-left: 30rpx;
+		border: 2rpx solid #18B4FE;
+		border-radius: 60rpx;
+		text-align: center;
+		background-color: #fff;
+		vertical-align: middle;
+}
+.tip.data-v-b16c9c40{
+		color: #FFFFFF;
+		font-size: 30rpx;
+		vertical-align: middle;
+}
 

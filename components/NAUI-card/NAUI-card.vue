@@ -5,7 +5,7 @@
 				<view class="cu-item">
 					<view class="cu-avatar round lg">
 					<!-- 头像，匿名时显示统一的匿名头像，若需自定义请自行修改 -->
-						<image class="avatar round" :src="anony ? 'http://img.nauzone.cn/20141118153114_aiRyY.thumb.700_0.jpeg' : avatarurl"></image>
+						<image class="avatar round" :src="null ? 'http://img.nauzone.cn/20141118153114_aiRyY.thumb.700_0.jpeg' : avatarurl"></image>
 						<view v-if="mark" class="cu-tag badge bg-blue">V</view>
 					</view>
 					<view class="content padding-tbl">
@@ -28,8 +28,7 @@
 				<image class="bg-img only-img" :src="imgurl"></image>
 			</view>
 			<view class="text-gray text-sm text-right padding">
-				<text class="right">浏览:{{ show_times }}</text>
-				<text class="right">点赞:{{ points }}</text>
+				<text class="right">校区:{{ show_times }}</text>
 			</view>
 		</view>
 	</view>
@@ -47,7 +46,7 @@ export default {
 			type: Array, 
 		},
 		points:Number,
-		show_times:Number,
+		show_times:String,
 		imgurl:String,
 		content:String,
 		id:Number,
@@ -59,7 +58,6 @@ export default {
 		creat_time:String,
 	},
 	created:function(){
-		console.log(this.creat_time)
 		this.creat_time = this.dateTimeFormatter(parseInt(this.creat_time)*1000)
 	},
 	methods:{
